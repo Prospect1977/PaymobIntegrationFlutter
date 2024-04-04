@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 
 import 'package:paymob_integration/shared/components/constants.dart' as con;
-//import 'package:paymob_integration/shared/components/paymob.dart';
+import 'package:paymob_integration/shared/components/paymob.dart';
 
 class DioHelper {
   static Dio? dio;
@@ -10,6 +10,15 @@ class DioHelper {
     dio = Dio(
       BaseOptions(
         baseUrl: '${con.baseUrl}/api/',
+        receiveDataWhenStatusError: true,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      ),
+    );
+    dioPayMob = Dio(
+      BaseOptions(
+        baseUrl: '$base_paymob_url/',
         receiveDataWhenStatusError: true,
         headers: {
           'Content-Type': 'application/json',

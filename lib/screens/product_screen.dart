@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:paymob_integration/models/new-order-model.dart';
+import 'package:paymob_integration/screens/select_payment_method_screen.dart';
 
 import 'package:paymob_integration/shared/cache_helper.dart';
 import 'package:paymob_integration/shared/components/components.dart';
@@ -211,6 +212,8 @@ class _ProductScreenState extends State<ProductScreen> {
                         function: () {
                           if (formKey.currentState!.validate()) {
                             _saveNewOrder();
+                            navigateTo(
+                                context, const SelectPaymentMethodScreen());
                           }
                         },
                         borderRadius: 5,
